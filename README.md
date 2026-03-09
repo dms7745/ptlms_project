@@ -2,6 +2,8 @@
 
 > **JPA + Spring Security + JWT** 기반의 운동 PT 관리 시스템
 
+## URL https://ptlms.da2un.store
+
 ## 📋 프로젝트 개요
 
 트레이너와 회원 간의 운동/식단 관리를 위한 웹 애플리케이션
