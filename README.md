@@ -138,25 +138,16 @@ Spring Boot API와 통신하기 위해 Axios를 사용.
 
 ## 10. 기술 스택 (Tech Stack)
 - Backend<br>
-Java (Spring Boot)
-Spring Security
-JWT
-JPA (Hibernate)
+Java (Spring Boot), Spring Security, JWT, JPA (Hibernate)
 
 - Frontend<br>
-React
-Redux
-Axios
+React, Redux, Axios
 
 - Database<br>
 MySQL / H2 Database
 
 - Development Tool<br>
-IntelliJ
-STS4 (Spring Tool Suite 4)
+IntelliJ, STS4 (Spring Tool Suite 4)
 
 - Collaboration<br>
-GitHub
-Notion
-# http://localhost:8082
-```
+GitHub, Notion
