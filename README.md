@@ -68,6 +68,51 @@ src/main/java/com/ptlms/
 ```
 
 ---
+## 4. 데이터베이스 설계 (ERD)
+사용자(User), 강의(Course), 게시글(Post), 학습기록(Progress) 간의 관계를 고려한 정규화된 DB 설계 적용 (이부분 수정)
+
+┌─────────────┐       ┌─────────────┐       ┌─────────────┐
+│    User     │       │   Trainer   │       │   Member    │
+├─────────────┤       ├─────────────┤       ├─────────────┤
+│ id (PK)     │       │ id (PK)     │       │ id (PK)     │
+│ email       │       │ user_id(FK) │──┐    │ user_id(FK) │──┐
+│ password    │       │ specialty   │  │    │ trainer_id  │──┼─► N:1
+│ name        │       │ career      │  │    │ goal        │  │
+│ phone       │       │ intro       │  │    │ height      │  │
+│ role        │◄──────┴─────────────┘  │    │ weight      │  │
+│ created_at  │◄───────────────────────┴────┴─────────────┘  │
+└─────────────┘                                              │
+      │                                                      │
+      │         ┌─────────────────┐      ┌─────────────────┐ │
+      │         │  WorkoutPlan    │      │  WorkoutRecord  │ │
+      │         ├─────────────────┤      ├─────────────────┤ │
+      │         │ id (PK)         │      │ id (PK)         │ │
+      │         │ trainer_id (FK) │      │ member_id (FK)  │◄┘
+      │         │ title           │      │ plan_id (FK)    │
+      │         │ description     │      │ completed_at    │
+      │         │ category        │      │ feedback        │
+      │         └─────────────────┘      └─────────────────┘
+      │
+      │         ┌─────────────────┐      ┌─────────────────┐
+      │         │    DietPlan     │      │   DietRecord    │
+      │         ├─────────────────┤      ├─────────────────┤
+      │         │ id (PK)         │      │ id (PK)         │
+      │         │ trainer_id (FK) │      │ member_id (FK)  │
+      │         │ meal_type       │      │ plan_id (FK)    │
+      │         │ menu            │      │ photo_url       │
+      │         │ calories        │      │ recorded_at     │
+      │         └─────────────────┘      └─────────────────┘
+      │
+      │         ┌─────────────────┐
+      │         │  BodyRecord     │
+      │         ├─────────────────┤
+      │         │ id (PK)         │
+      │         │ member_id (FK)  │
+      │         │ weight          │
+      │         │ muscle_mass     │
+      │         │ body_fat        │
+      │         │ recorded_at     │
+      │         └─────────────────┘
 
 ## �� 실행
 
