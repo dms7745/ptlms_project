@@ -114,60 +114,51 @@ React 기반 프론트엔드는 다음과 같은 구조로 설계.
 Redux를 사용하여 전역 상태를 관리.
 
 authSlice
-로그인 / 로그아웃 관리
-JWT 토큰 저장 및 인증 상태 관리
+- 로그인 / 로그아웃 관리<br>
+- JWT 토큰 저장 및 인증 상태 관리<br>
+
 memberSlice
-회원 목록 상태 관리
-트레이너가 관리하는 회원 데이터 처리
+- 회원 목록 상태 관리<br>
+- 트레이너가 관리하는 회원 데이터 처리<br>
 
-## 8. React 프로젝트 구조
-React 기반 프론트엔드는 다음과 같은 구조로 설계.
+## 8. API 통신 (Axios)
+Spring Boot API와 통신하기 위해 Axios를 사용.
 
-## 6. React 프로젝트 구조
-React 기반 프론트엔드는 다음과 같은 구조로 설계.
+주요 특징
+- JWT 토큰 자동 첨부<br>
+- Axios Interceptor로 인증 처리<br>
+- 401 Unauthorized 발생 시 자동 로그아웃 처리<br>
 
-## 6. React 프로젝트 구조
-React 기반 프론트엔드는 다음과 같은 구조로 설계.
+## 9. 주요 기능 구현
+- 로그인 / 회원가입<br>
+- 보호된 라우트 (ProtectedRoute)<br>
+- 대시보드<br>
+- 회원 관리<br>
+- PT 일정 캘린더<br>
 
-```java
-.requestMatchers("/api/auth/**").permitAll()           // 로그인/회원가입
-.requestMatchers("/api/trainer/**").hasRole("TRAINER") // 트레이너만
-.requestMatchers("/api/member/**").hasRole("USER")     // 회원만
-```
+## 10. 기술 스택 (Tech Stack)
+Backend
 
----
-
-## 📁 구조
-
-```
-src/main/java/com/ptlms/
-├── entity/      # User, Member, WorkoutLog
-├── repository/  # JPA Repository
-├── service/     # 비즈니스 로직
-├── controller/  # REST API
-├── security/    # JWT 인증
-└── config/      # Security 설정
-```
-
----
-## 4. 데이터베이스 설계 (ERD)
-사용자(User), 강의(Course), 게시글(Post), 학습기록(Progress) 간의 관계를 고려한 정규화된 DB 설계 적용 (이부분 수정)
+Java (Spring Boot)
+Spring Security
+JWT
+JPA (Hibernate)
 
 
-```
-src/main/java/com/ptlms/
-├── entity/      # User, Member, WorkoutLog
-├── repository/  # JPA Repository
-├── service/     # 비즈니스 로직
-├── controller/  # REST API
-├── security/    # JWT 인증
-└── config/      # Security 설정
-```
+##Frontend
+React
+Redux
+Axios
 
+##Database
+MySQL / H2 Database
 
-## �� 실행
+##Development Tool
+IntelliJ
+STS4 (Spring Tool Suite 4)
 
-```bash
-./gradlew bootRun
+##Collaboration
+GitHub
+Notion
 # http://localhost:8082
 ```
