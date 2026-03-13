@@ -69,26 +69,65 @@ Spring Boot는 REST API 서버로서 데이터 처리와 비즈니스 로직을 
 회원(User), 트레이너(Trainer), 운동 기록(WorkoutLog) 간의 관계를 고려하여 정규화된 DB 구조로 설계.
 
 ```
-User ──1:1── Member ──N:1── Trainer
-                │
-               1:N
-                ▼
-           WorkoutLog
+User
+ │
+ ├─ Trainer
+ │     └─ WorkoutPlan
+ │     └─ DietPlan
+ │
+ └─ Member
+       └─ WorkoutRecord
+       └─ DietRecord
+       └─ BodyRecord
+```
+## 6. React 프로젝트 구조
+React 기반 프론트엔드는 다음과 같은 구조로 설계.
+
+```
+/opt/ptlms-frontend/
+├── src/
+│   ├── components/     # 재사용 컴포넌트
+│   │   ├── Layout/     # Navbar, Sidebar, ProtectedRoute
+│   │   └── Common/     # Loading, Modal
+│   │
+│   ├── pages/          # 페이지 컴포넌트
+│   │   ├── Home.js
+│   │   ├── Login.js
+│   │   ├── Register.js
+│   │   ├── Dashboard.js
+│   │   ├── Members.js
+│   │   └── Schedule.js
+│   │
+│   ├── store/          # Redux 상태 관리
+│   │   ├── index.js
+│   │   ├── authSlice.js
+│   │   └── memberSlice.js
+│   │
+│   ├── services/       # Axios API 서비스
+│   │   └── api.js
+│   │
+│   └── styles/         # CSS 스타일
+│       └── global.css
 ```
 
-```java
-// 트레이너가 자기 회원들만 조회
-@ManyToOne
-private User trainer;
+## 7. 상태 관리 (Redux)
+Redux를 사용하여 전역 상태를 관리.
 
-// 회원이 본인 기록만 조회  
-@ManyToOne
-private Member member;
-```
+authSlice
+로그인 / 로그아웃 관리
+JWT 토큰 저장 및 인증 상태 관리
+memberSlice
+회원 목록 상태 관리
+트레이너가 관리하는 회원 데이터 처리
 
----
+## 8. React 프로젝트 구조
+React 기반 프론트엔드는 다음과 같은 구조로 설계.
 
-## 🔐 Security 설정 (핵심)
+## 6. React 프로젝트 구조
+React 기반 프론트엔드는 다음과 같은 구조로 설계.
+
+## 6. React 프로젝트 구조
+React 기반 프론트엔드는 다음과 같은 구조로 설계.
 
 ```java
 .requestMatchers("/api/auth/**").permitAll()           // 로그인/회원가입
