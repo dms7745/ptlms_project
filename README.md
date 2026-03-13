@@ -137,27 +137,25 @@ Spring Boot API와 통신하기 위해 Axios를 사용.
 - PT 일정 캘린더<br>
 
 ## 10. 기술 스택 (Tech Stack)
-Backend
-
+- Backend<br>
 Java (Spring Boot)
 Spring Security
 JWT
 JPA (Hibernate)
 
-
-##Frontend
+- Frontend<br>
 React
 Redux
 Axios
 
-##Database
+- Database<br>
 MySQL / H2 Database
 
-##Development Tool
+- Development Tool<br>
 IntelliJ
 STS4 (Spring Tool Suite 4)
 
-##Collaboration
+- Collaboration<br>
 GitHub
 Notion
 # http://localhost:8082
